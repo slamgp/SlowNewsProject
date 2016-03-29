@@ -1,0 +1,24 @@
+body 	{ 
+		background-color: #D3D3D3 ;
+		background-size: cover;
+	}
+.favoriteButton	{  
+    cursor:pointer;
+    display:block;
+    background-image:url('../images/star1.png');
+    float: right;
+}
+	
+.image {
+	float:left;
+	width: 200px;
+	margin: 0 3px 0 0;
+}
+
+.mainDiv {		
+					position:relative;
+					width: 80%;
+					border: solid 3px #ffffff; 
+					margin: auto;
+					padding: 1%;
+		}
