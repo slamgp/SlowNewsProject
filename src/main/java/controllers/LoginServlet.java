@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.User;
 import model.UsersList;
@@ -16,20 +17,26 @@ import model.UsersList;
 public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+			throws ServletException, IOException {		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/view/login.jsp");
-		dispatcher.forward(req,resp); 
+		dispatcher.forward(req, resp);
 	}
-
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		
-		UsersList.getInstance().add(new User(
-				req.getParameter("email"),
-				req.getParameter("login"),
-				req.getParameter("password")));
-		
-		 resp.sendRedirect("users");		
+		User user = login(req.getParameter("login"),req.getParameter("password"));
+		HttpSession session = req.getSession();
+		if( user != null) {
+			session.setAttribute("userName", user.getLogin());
+			resp.sendRedirect("news");	
+		} else {
+			session.setAttribute("userName", "Guest");
+			resp.sendRedirect("login");
+		}
+	}
+
+	private User login(String login, String password) {
+		return UsersList.getUser(login, password);
 	}	
 }

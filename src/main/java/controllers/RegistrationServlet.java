@@ -8,6 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import model.User;
+import model.UsersList;
 
 @WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
@@ -16,6 +20,18 @@ public class RegistrationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/view/registration.jsp");
-		dispatcher.forward(req,resp); 
+		dispatcher.forward(req, resp);
 	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		
+		UsersList.getInstance().add(new User(
+				req.getParameter("email"),
+				req.getParameter("login"),
+				req.getParameter("password")));
+		
+		resp.sendRedirect("login");	
+	}	
 }

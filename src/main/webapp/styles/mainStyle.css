@@ -16,9 +16,20 @@ body 	{
 }
 
 .mainDiv {		
+				    top: 30px;
 					position:relative;
 					width: 80%;
 					border: solid 3px #ffffff; 
-					margin: auto;
+					margin: 0 10% 0 10%;
 					padding: 1%;
 		}
+.header {
+    height:20px;
+    background:#F0F0F0;
+    position:relative;
+    border: solid 3px #ffffff; 
+    width: 80%;
+    margin: 0 10% 0 10%;
+    top: 1px;
+    font: 12pt sans-serif; 
+}

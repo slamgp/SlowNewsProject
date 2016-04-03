@@ -14,4 +14,13 @@ public class UsersList {
 		return instance;
 	}
 	
+	public static User getUser(String login, String password) {
+		for(User user: instance){
+			if(user.getLogin().equals(login) && user.getPassword().equals(password)) {
+				return user;
+			}
+		}
+		return  null;
+	}
+	
 }

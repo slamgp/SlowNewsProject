@@ -9,15 +9,23 @@
 	    <link rel="stylesheet" type="text/css" href="styles/mainStyle.css"/>
 	</head>
 	<body>
-	    <form action="login" method="post">
-	        <p><strong>e-mail:</strong>  <br>
-            <input maxlength="50" size="50" name="email"></p> <br>
-            <p><strong>login:</strong>  <br>
-            <input maxlength="50" size="50" name="login"></p> <br>
-            <p><strong>password:</strong>  <br>
-            <input type="password" maxlength="50" size="50" name="password"></p><br>
-            <br>
-            <p><input type="submit"></p>
-        </form>
+	    <header>
+            <div class = "header">
+                <nav>
+                    <a href="login">login</a>  <c:if test="${sessionScope.userName == Guest}">| <a href="registration">registartion</a> | </c:if> |
+                    <a href="news">news</a> | <c:if test="${sessionScope.userName != Guest}">| <a href="favorites">favorites</a> </c:if> |  Hello, ${sessionScope.userName}  <c:if test="${sessionScope.userName != Guest}"> |  <a href="logOut">logOut</a>  </c:if>  
+                </nav>
+            </div>
+        </header>
+	    <div class = "mainDiv">
+		    <form action="login" method="post">
+	            <p><strong>login:</strong>  <br>
+	            <input maxlength="50" size="50" name="login"></p> <br>
+	            <p><strong>password:</strong>  <br>
+	            <input type="password" maxlength="50" size="50" name="password"></p><br>
+	            <br>
+	            <p><input type="submit"></p>
+	        </form>
+        </div>
 	</body>
 </html>

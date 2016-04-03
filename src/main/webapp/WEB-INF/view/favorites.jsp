@@ -9,6 +9,25 @@
 	    <link rel="stylesheet" type="text/css" href="styles/mainStyle.css"/>
 	</head>
 	<body>
-	   favorites
+	      <header>
+            <div class = "header">
+                <nav>
+                    <a href="login">login</a>  <c:if test="${sessionScope.userName == Guest}">| <a href="registration">registartion</a> | </c:if>
+                    <a href="news">news</a> | <c:if test="${sessionScope.userName != Guest}">| <a href="favorites">favorites</a> </c:if> |  Hello, ${sessionScope.userName}  <c:if test="${sessionScope.userName != Guest}"> |  <a href="logOut">logOut</a>  </c:if>
+                </nav>
+            </div>
+        </header>
+	    <c:forEach var="article" items="${news}">
+            <div class = "mainDiv">
+                <div class = "image">
+                    <img src= ${article.image} alt="aaaaaaaaaa">
+                </div>
+                <h1> ${article.header}  </h1>
+                ${article.body}
+                <br>
+                    <button class= "favoriteButton">add to favorite</button>
+                </br> 
+            </div>
+        </c:forEach>
 	</body>
 </html>
