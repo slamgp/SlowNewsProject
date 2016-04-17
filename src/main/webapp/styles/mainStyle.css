@@ -23,6 +23,9 @@ body 	{
 					margin: 0 10% 0 10%;
 					padding: 1%;
 		}
+.headerItem {
+	border: solid 3px #ffffff; 
+}
 .header {
     height:20px;
     background:#F0F0F0;

@@ -2,18 +2,33 @@ package model;
 
 public class User {
 	
-    private String email;
+	private int id;
+	private String email;
     private String login;
     private String password;
+    
+    public final static String TABLE_NAME = "\"user\"";
+    public static interface KEY_FILEDS {
+    	final static String ID = "id";
+    	final static String EMAIL = "email";
+    	final static String LOGIN = "login";
+    	final static String PASSWORD = "password";
+    };
     
 	public User() {
 	}
     
 	public User(String email, String login, String password) {
-		super();
 		this.email = email;
 		this.login = login;
 		this.password = password;
+	}
+	
+	public User(String email, String login, String password, int id) {
+		this.email = email;
+		this.login = login;
+		this.password = password;
+		this.id = id;
 	}
 	
 	public String getEmail() {
@@ -38,6 +53,14 @@ public class User {
 	
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

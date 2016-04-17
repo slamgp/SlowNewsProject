@@ -26,10 +26,12 @@
 		        ${article.body}
 		        <c:if test="${sessionScope.userName != Guest}">
 			        <br>
-			            <button class= "favoriteButton">add to favorite</button>
+			            <button  class= "favoriteButton">add to favorite</button>
 			        </br> 
 		        </c:if>
 		    </div>
 		</c:forEach>
 	</body>
+    <script type="text/javascript" src="javaScript/lib/jquery-2.2.3.js"></script>
+    <script type="text/javascript" src="javaScript/test.js"></script>
 </html>

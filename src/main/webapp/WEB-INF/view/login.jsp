@@ -12,8 +12,8 @@
 	    <header>
             <div class = "header">
                 <nav>
-                    <a href="login">login</a>  <c:if test="${sessionScope.userName == Guest}">| <a href="registration">registartion</a> | </c:if> |
-                    <a href="news">news</a> | <c:if test="${sessionScope.userName != Guest}">| <a href="favorites">favorites</a> </c:if> |  Hello, ${sessionScope.userName}  <c:if test="${sessionScope.userName != Guest}"> |  <a href="logOut">logOut</a>  </c:if>  
+                    <a class="headerItem" href="login">login</a>  <c:if test="${sessionScope.userName == Guest}">| <a class="headerItem" href="registration">registartion</a> | </c:if> |
+                    <a class="headerItem" href="news">news</a> | <c:if test="${sessionScope.userName != Guest}">| <a class="headerItem" href="favorites">favorites</a> </c:if> |  Hello, ${sessionScope.userName}  <c:if test="${sessionScope.userName != Guest}"> |  <a class="headerItem" href="logOut">logOut</a>  </c:if>  
                 </nav>
             </div>
         </header>
